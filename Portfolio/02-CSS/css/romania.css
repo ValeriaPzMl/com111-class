@@ -1,3 +1,35 @@
 body {
-    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.container {
+    width: 100px;
+    height: 300px;
+    position: relative;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
+
+.rojo {
+    top: 0; 
+    left: 200px;
+    background-color: red;
+}
+
+.azul {
+    background-color: blue;
+    top:-100px;
+}
+
+.ama {
+    background-color: yellow;
+    top: -200px; 
+    left: 100px;
 }

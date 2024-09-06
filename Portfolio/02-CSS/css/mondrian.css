@@ -1,0 +1,104 @@
+body {
+    margin: 0;
+  }
+
+  .container {
+    width: 700px;
+    height: 440px;
+    border: 1px solid black;
+    display: flex;
+  }
+
+  .box{
+    border: 10px solid black;
+    position: absolute;
+  }
+  .rojo {
+    background-color: red;
+    width: 200px;
+    height: 210px;
+    margin-left: 340px;
+    margin-top: 20px;
+
+  }
+
+  .ama {
+    background-color: yellow;
+    margin-left: 550px;
+    margin-top: 0px;
+    height: 20px;
+    width: 140px;
+    border-top: 0px;
+    border-right: 0px;
+  }
+
+  .azul {
+    margin-top: 240px;
+    margin-left: 50px;
+    background-color: blue;
+    width: 200px;
+    height: 100px;
+  }
+  .t1{
+    border-left: 0px;
+    border-top: 0px;
+    height: 240px;
+    width: 50px;
+  }
+  .t2{
+    margin-top: 240px;
+    border-left: 0px;
+    width: 50px;
+    height: 100px;
+  }
+  .t3{
+    margin-top: 350px;
+    border-bottom: 0px;
+    border-left: 0px;
+    width: 50px;
+    height: 80px;
+  }
+  .t4{
+    margin-top: 350px;
+    margin-left: 50px;
+    border-bottom: 0px;
+    border-left: 0px;
+    width: 210px;
+    height: 80px;
+  }
+  .t5{
+    margin-top: 350px;
+    margin-left: 270px;
+    border-bottom: 0px;
+    border-left: 0px;
+    width: 70px;
+    height: 80px;
+  }
+  .t6{
+    margin-top: 240px;
+    margin-left: 340px;
+    border-bottom: 0px;
+    width: 200px;
+    height: 190px;
+  }
+  .t7 {
+    margin-top: 0px;
+    margin-left: 260px;
+    border-top: 0px;
+    width: 70px;
+    height: 20px;
+  }
+  .t8{
+    margin-top: 20px;
+    margin-left: 260px;
+    width: 70px;
+    height: 210px;
+  }
+  .t9{
+    margin-top: 240px;
+    margin-left: 550px;
+    border-bottom: 0px;
+    border-right: 0px;
+    width: 140px;
+    height: 190px;
+  }
