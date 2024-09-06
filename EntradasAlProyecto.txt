@@ -1,0 +1,25 @@
+August 29, 2024
+CREATION:
+    I created the repository
+
+August 29, 2024
+BASIC:
+    I created the necessary files (6 html's and the style document)
+    I made the index and a beta version of the general menu, I also established
+    the background with the help of a page that creates blurs for css
+
+August 30, 2024
+MENU CHANGE:
+    I changed the menu for a more professional one that I found in boostrap
+    and which I customized according to the needs of my page
+
+August 31, 2024
+CREATION OF FORUMS AND MESSAGES:
+    I made the forums and messages pages using a boostrap base
+    which I customized for each of the needs of either forums or messages
+    and created an exclusive styles page for these
+
+September 4, 2024
+CREATION OF AREAS:
+    I made the design of the Areas page whose sole function is to take you to 
+    the material or quizzes specific to an area of ​​study
