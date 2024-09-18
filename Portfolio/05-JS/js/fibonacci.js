@@ -18,6 +18,11 @@ function f(n) {
     value = memo[n];
   } else {
     //TODO: Implement the fibonacci function here!
+    if (n <= 1) {
+      value = n;
+    } else {
+      value = f(n - 1) + f(n - 2);
+    }
 
     memo[n] = value;
   }

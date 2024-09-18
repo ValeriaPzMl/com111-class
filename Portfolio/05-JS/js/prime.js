@@ -22,7 +22,16 @@ var getPrimeFactors = function (n) {
 
   //TODO: Check which numbers are factors of n and also check if
   // that number also happens to be a prime
-
+  var c=0;
+  for(var h=2;h<=n;h++){
+    if(isPrime(h)){
+    if(n%h==0){
+      sequence[c]=h;
+      c++;
+    }
+  }
+  }
+  if(isPrime(n))window.alert("is Prime")
   return sequence;
 };
 
