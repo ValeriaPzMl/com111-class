@@ -1,0 +1,21 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Página de Inicio</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <%- include('partials/header') %> <!-- Incluye el header sin './' ni '/' -->
+  
+  <h1>Bienvenido</h1>
+  <form action="/login" method="POST">
+    <label for="name">Nombre:</label>
+    <input type="text" id="name" name="name" required>
+    <button type="submit">Iniciar Sesión</button>
+  </form>
+  
+  <%- include('partials/footer') %> <!-- Incluye el footer sin './' ni '/' -->
+</body>
+</html>

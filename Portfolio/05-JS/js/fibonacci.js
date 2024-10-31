@@ -4,9 +4,9 @@
 */
 // This array will keep memory of the previous fibonacci numbers
 var memo = {};
-function fibonacci() {
+function fibonacci(n) {
   "use strict";
-  var n = document.getElementById("num").value;
+  //var n = document.getElementById("num").value;
   var val = f(n);
   return val;
 }

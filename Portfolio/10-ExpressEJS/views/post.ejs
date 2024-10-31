@@ -1,0 +1,16 @@
+<!-- views/post.ejs -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title><%= post.title %></title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <%- include('partials/header') %> <!-- Incluye el header sin './' ni '/' -->
+    <h2><%= post.title %></h2>
+  <p><%= post.content %></p>
+  <a href="/home">Volver al Blog</a>
+  <%- include('partials/footer') %> <!-- Incluye el footer sin './' ni '/' -->
+</body>
+</html>

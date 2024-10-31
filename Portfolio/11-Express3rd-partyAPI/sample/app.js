@@ -1,75 +1,65 @@
-const express = require("express");
-const https = require("https");
-const bodyParser = require("body-parser");
-const axios = require("axios");
-const FormData = require("form-data");
+// app.js
+const express = require('express');
+const https = require('https');
+const path = require('path');
+require('dotenv').config();
 
 const app = express();
+const PORT = 3000;
 
-// https get
-app.get("/", (req, res) => {
-  var url = "http://placekitten.com/g/300/300";
-  https.get(url, (response) => {
-    console.log(response.statusCode);
-    response.on("data", (data) => {
-      res.write(data);
-      res.send();
+app.use(express.static('public'));
+
+// Serve the index.html file on the root route
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+// Weather API endpoint
+app.get('/weather', (req, res) => {
+  const city = req.query.city || 'London'; // Default city if none provided
+  const apiKey = process.env.OPENWEATHER_API_KEY;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+  https.get(url, (apiRes) => {
+    let data = '';
+
+    apiRes.on('data', (chunk) => {
+      data += chunk;
     });
-  });
-});
 
-// https post
-app.get("/dictionary", (req, res) => {
-  var url = "https://api.toys/api/check_dictionary";
-  const form_data = new FormData();
-  form_data.append("text", "marry");
-  const options = {
-    method: "POST",
-    headers: form_data.getHeaders(),
-  };
-  var soapRequest = https.request(url, options, (response) => {
-    if (response.statusCode === 200) {
-      response
-        .on("data", (data) => {
-          var jsonResp = JSON.parse(data);
-          console.log(jsonResp);
-          res.send("Success");
-        })
-        .on("error", (e) => {
-          res.send("Error ${e.message}");
-        });
-    } else {
-      res.send("Error");
-    }
-  });
-  form_data.pipe(soapRequest);
-});
+    apiRes.on('end', () => {
+      const weatherData = JSON.parse(data);
 
-// axios post
-app.get("/temp", (req, res) => {
-  var url = "https://api.toys/api/check_dictionary";
-  const form_data = new FormData();
-  form_data.append("text", "marry");
-  axios
-    .post(url, form_data, { headers: form_data.getHeaders() })
-    .then((response) => {
-      var data = response.data;
-      console.log(data);
-      if (!data.hasOwnProperty("error")) {
-        console.log("no error");
-        res.send("Success");
+      if (apiRes.statusCode === 200) {
+        const temp = weatherData.main.temp;
+        const description = weatherData.weather[0].description;
+        const icon = weatherData.weather[0].icon;
+
+        res.send(`
+          <h1>Clima en ${city}</h1>
+          <p>Temperatura: ${temp}°C</p>
+          <p>Descripción: ${description}</p>
+          <img src="http://openweathermap.org/img/wn/${icon}@2x.png" alt="${description}" />
+          <br><a href="/">Volver al inicio</a>
+        `);
       } else {
-        console.log("Fail");
-        res.send("Fail");
+        // Muestra el mensaje de error de la API en la respuesta
+        res.send(`
+          <h1>Error</h1>
+          <p>${weatherData.message}</p>
+          <br><a href="/">Volver al inicio</a>
+        `);
       }
-    })
-    .catch((err) => {
-      console.log(err.code + ": " + err.message);
-      console.log(err.stack);
-      res.send("Fail error");
     });
+  }).on('error', (e) => {
+    res.send(`
+      <h1>Error</h1>
+      <p>Hubo un problema al conectarse al servicio de clima. Intenta de nuevo más tarde.</p>
+      <br><a href="/">Volver al inicio</a>
+    `);
+  });
 });
 
-app.listen(3000, () => {
-  console.log("Listening to port 3000");
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });

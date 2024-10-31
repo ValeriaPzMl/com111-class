@@ -1,0 +1,15 @@
+<!-- views/greeting.ejs -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Saludo</title>
+</head>
+<body>
+    <%- include('partials/header') %> <!-- Incluye el header sin './' ni '/' -->
+    <h1>Hola, <%= name %>!</h1>
+  <p>Has iniciado sesión mediante un método de <%= method %>.</p>
+  <a href="/">Volver al inicio</a>
+  <%- include('partials/footer') %> <!-- Incluye el footer sin './' ni '/' -->
+</body>
+</html>

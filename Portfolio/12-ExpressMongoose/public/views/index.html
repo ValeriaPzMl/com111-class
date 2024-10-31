@@ -1,0 +1,45 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>F1 2023 - Pilotos y Equipos</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <h1>Temporada F1 2023</h1>
+
+  <!-- Formulario para agregar pilotos -->
+  <form action="/add-driver" method="POST">
+    <label for="forename">Nombre:</label>
+    <input type="text" id="forename" name="forename" required>
+
+    <label for="surname">Apellido:</label>
+    <input type="text" id="surname" name="surname" required>
+
+    <label for="team">Equipo:</label>
+    <select id="team" name="team" required>
+      <% teams.forEach(team => { %>
+        <option value="<%= team.name %>"><%= team.name %></option>
+      <% }); %>
+    </select>
+
+    <label for="nationality">País:</label>
+    <select id="nationality" name="nationality" required>
+      <% countries.forEach(country => { %>
+        <option value="<%= country.code %>"><%= country.label %></option>
+      <% }); %>
+    </select>
+
+    <button type="submit">Agregar Piloto</button>
+  </form>
+
+  <!-- Lista de pilotos -->
+  <h2>Pilotos</h2>
+  <ul>
+    <% drivers.forEach(driver => { %>
+      <li><%= driver.forename %> <%= driver.surname %> - <%= driver.team.name %> - <%= driver.nationality %></li>
+    <% }); %>
+  </ul>
+</body>
+</html>

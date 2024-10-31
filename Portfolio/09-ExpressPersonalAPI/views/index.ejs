@@ -1,0 +1,45 @@
+<!-- html/index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Página de Inicio</title>
+</head>
+<body>
+  <h1>Bienvenido</h1>
+  <form action="/greet" method="GET">
+    <label for="name">Nombre:</label>
+    <input type="text" id="name" name="name" required>
+    <button type="submit">Saludar</button>
+  </form>
+
+  <h2>Saludos:</h2>
+  <ul id="greetings">
+    <!-- La lista de nombres irá aquí -->
+    <% if (names) { %>
+      <% names.forEach(name => { %>
+        <li><a href="/wazzup/<%= names.indexOf(name) %>"><%= name %></a></li>
+      <% }) %>
+    <% } %>
+  </ul>
+  <h2>TODO List:</h2>
+<ul id="todo-list">
+  <% if (tasks) { %>
+    <% tasks.forEach(task => { %>
+      <li>
+        <%= task %>
+        <a href="/task/delete/<%= tasks.indexOf(task) %>">Eliminar</a>
+        <!-- Puedes agregar botones para mover arriba/abajo -->
+      </li>
+    <% }) %>
+  <% } %>
+</ul>
+
+<form action="/task" method="POST">
+  <label for="task">Nueva Tarea:</label>
+  <input type="text" id="task" name="task" required>
+  <button type="submit">Agregar</button>
+</form>
+
+</body>
+</html>
