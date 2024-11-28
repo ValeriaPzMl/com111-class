@@ -1,0 +1,49 @@
+/* Contenedor principal de la lista de tarjetas */
+.movie-list {
+  display: flex; /* Usa Flexbox para alinear las tarjetas horizontalmente */
+  flex-wrap: wrap; /* Permite que las tarjetas bajen a una nueva fila si no caben */
+  justify-content: center; /* Centra las tarjetas horizontalmente */
+  gap: 20px; /* Espacio entre las tarjetas */
+  margin-top: 20px; /* Margen superior opcional */
+  width: 100%; /* Asegura que ocupe todo el ancho disponible */
+}
+
+/* Estilos de cada tarjeta */
+.movie-card {
+  border: 1px solid #ccc; /* Borde gris claro */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para las tarjetas */
+  padding: 20px; /* Espaciado interno */
+  text-align: center; /* Centra el contenido dentro de la tarjeta */
+  width: 250px; /* Ancho fijo de las tarjetas */
+  transition: transform 0.2s ease; /* Animación suave al hacer hover */
+}
+
+/* Efecto hover para las tarjetas */
+.movie-card:hover {
+  transform: scale(1.05); /* Agranda la tarjeta ligeramente */
+}
+
+/* Imagen dentro de las tarjetas */
+.movie-card img {
+  width: 100%; /* Asegura que la imagen ocupe todo el ancho disponible */
+  max-width: 200px; /* Máximo ancho de la imagen */
+  height: auto; /* Mantiene la proporción de la imagen */
+  margin-bottom: 10px; /* Espaciado inferior */
+}
+
+/* Botones de la tarjeta */
+.movie-card button {
+  margin: 5px; /* Espaciado entre botones */
+}
+
+/* Centra el contenedor principal */
+.app-container {
+  display: flex;
+  flex-direction: column; /* Para apilar los elementos (título y tarjetas) */
+  justify-content: center; /* Centra verticalmente */
+  align-items: center; /* Centra horizontalmente */
+  min-height: 100vh; /* Ocupa el 100% del alto de la ventana */
+  background-color: #f8f9fa; /* Fondo opcional */
+}
+
